@@ -3,7 +3,7 @@ function hhb_encrypt($data, $password) {
 	return hhb_encrypt1 ( $data, $password );
 }
 function hhb_decrypt($instr, $password) {
-	return hhb_decrypt1 ( $data, $password );
+	return hhb_decrypt1 ( $instr, $password );
 }
 function hhb_encrypt1(/*string*/ $data,/*string*/ $password)/*:string*/{
 	$version = 1;
