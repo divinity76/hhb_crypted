@@ -20,7 +20,7 @@ if (! empty ( $_POST ['action'] )) {
 			}
 		case 'decrypt' :
 			{
-				hhb_decrypt ( $value, $password );
+				echo hhb_decrypt ( $value, $password );
 				break;
 			}
 		default :
@@ -51,8 +51,8 @@ if (! empty ( $_POST ['action'] )) {
 		server for encryption/decryption.<br /> i *should* write a full
 		javascript-encrypter/decrypter when i get time..
 	</span>
-	<br />
-	encryption password: <input type="password" id="encryptPassword" />
+	<br /> encryption password:
+	<input type="password" id="encryptPassword" />
 	<br />
 	<textarea id="encryptInput" placeholder="write text to encrypt here."></textarea>
 	<br />
@@ -81,8 +81,8 @@ if (! empty ( $_POST ['action'] )) {
                     xhr.send(fd);
                 });
         </script>
-	<br />
-	decryption password:	<input type="password" id="decryptPassword" />
+	<br /> decryption password:
+	<input type="password" id="decryptPassword" />
 	<br />
 	<textarea id="decryptInput"
 		placeholder="write text here for decryption"></textarea>
