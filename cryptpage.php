@@ -58,7 +58,7 @@ if (! empty ( $_POST ['action'] )) {
 	<br />
 	<button id="encrypt">encrypt</button>
 	<br />
-	<span id="encrypted">encrypted text comes here</span>
+	<pre id="encrypted">encrypted text comes here</pre>
 	<script>
             "use strict";
             document.getElementById("encrypt").addEventListener("click",
@@ -89,7 +89,7 @@ if (! empty ( $_POST ['action'] )) {
 	<br />
 	<button id="decrypt">decrypt</button>
 	<br />
-	<span id="decrypted">decrypted text comes here.</span>
+	<pre id="decrypted">decrypted text comes here.</pre>
 	<script>
             "use strict";
             document.getElementById("decrypt").addEventListener("click",
