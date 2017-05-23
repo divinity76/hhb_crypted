@@ -52,31 +52,37 @@ if (! empty ( $_POST ['action'] )) {
 		javascript-encrypter/decrypter when i get time..
 	</span>
 	<br />
+	<input type="password" id="encryptPassword" />
+	<br />
 	<textarea id="encryptInput" placeholder="write text to encrypt here."></textarea>
 	<br />
 	<button id="encrypt">encrypt</button>
 	<br />
 	<span id="encrypted">encrypted text comes here</span>
 	<script>
-	"use strict";
-        document.getElementById("encrypt").addEventListener("click",
-            function() {
-                var input = document.getElementById("encryptInput").value;
-                var xhr = new XMLHttpRequest();
-                xhr.open("POST","?");
-                xhr.addEventListener("readystatechange", function(ev) {
-                    var xhr = ev.target;
-                    if (xhr.readyState < 4) {
-                        return;
-                    }
-                    document.getElementById("encrypted").textContent = xhr.responseText;
+            "use strict";
+            document.getElementById("encrypt").addEventListener("click",
+                function() {
+                    var input = document.getElementById("encryptInput").value;
+                    var password = document.getElementById("encryptPassword").value;
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("POST", "?");
+                    xhr.addEventListener("readystatechange", function(ev) {
+                        var xhr = ev.target;
+                        if (xhr.readyState < 4) {
+                            return;
+                        }
+                        document.getElementById("encrypted").textContent = xhr.responseText;
+                    });
+                    var fd = new FormData();
+                    fd.append("action", "encrypt");
+                    fd.append("value", input);
+                    fd.append("password", password);
+                    xhr.send(fd);
                 });
-                var fd=new FormData();
-                fd.append("action","encrypt");
-                fd.append("value",input);
-                xhr.send(fd);
-            });
-    </script>
+        </script>
+	<br />
+	<input type="password" id="decryptPassword" />
 	<br />
 	<textarea id="decryptInput"
 		placeholder="write text here for decryption"></textarea>
@@ -85,24 +91,27 @@ if (! empty ( $_POST ['action'] )) {
 	<br />
 	<span id="decrypted">decrypted text comes here.</span>
 	<script>
-	"use strict";
-        document.getElementById("decrypt").addEventListener("click",
-            function() {
-                var input = document.getElementById("decryptInput").value;
-                var xhr = new XMLHttpRequest();
-                xhr.open("POST","?");
-                xhr.addEventListener("readystatechange", function(ev) {
-                    var xhr = ev.target;
-                    if (xhr.readyState < 4) {
-                        return;
-                    }
-                    document.getElementById("decrypted").textContent = xhr.responseText;
+            "use strict";
+            document.getElementById("decrypt").addEventListener("click",
+                function() {
+                    var input = document.getElementById("decryptInput").value;
+                    var password = document.getElementById("decryptPassword").value;
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("POST", "?");
+                    xhr.addEventListener("readystatechange", function(ev) {
+                        var xhr = ev.target;
+                        if (xhr.readyState < 4) {
+                            return;
+                        }
+                        document.getElementById("decrypted").textContent = xhr.responseText;
+                    });
+                    var fd = new FormData();
+                    fd.append("action", "decrypt");
+                    fd.append("value", input);
+                    fd.append("password", password);
+                    xhr.send(fd);
                 });
-                var fd=new FormData();
-                fd.append("action","decrypt");
-                fd.append("value",input);
-                xhr.send(fd);
-            });
-    </script>
+        </script>
 </body>
+
 </html>
