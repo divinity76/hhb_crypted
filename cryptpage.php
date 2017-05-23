@@ -52,7 +52,7 @@ if (! empty ( $_POST ['action'] )) {
 		javascript-encrypter/decrypter when i get time..
 	</span>
 	<br />
-	<input type="password" id="encryptPassword" />
+	encryption password: <input type="password" id="encryptPassword" />
 	<br />
 	<textarea id="encryptInput" placeholder="write text to encrypt here."></textarea>
 	<br />
@@ -82,7 +82,7 @@ if (! empty ( $_POST ['action'] )) {
                 });
         </script>
 	<br />
-	<input type="password" id="decryptPassword" />
+	decryption password:	<input type="password" id="decryptPassword" />
 	<br />
 	<textarea id="decryptInput"
 		placeholder="write text here for decryption"></textarea>
