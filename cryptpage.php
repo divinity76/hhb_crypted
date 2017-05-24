@@ -81,6 +81,7 @@ if (! empty ( $_POST ['action'] )) {
                     fd.append("value", input);
                     fd.append("password", password);
                     xhr.send(fd);
+                    document.getElementById("encrypted").textContent = "";//
                 });
         </script>
 	<br /> decryption password:
@@ -112,6 +113,7 @@ if (! empty ( $_POST ['action'] )) {
                     fd.append("value", input);
                     fd.append("password", password);
                     xhr.send(fd);
+                    document.getElementById("decrypted").textContent = "";//
                 });
         </script>
 </body>
